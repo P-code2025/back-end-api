@@ -19,6 +19,7 @@
   "homepage": "https://github.com/P-code2025/back-end-api#readme",
   "description": "",
   "dependencies": {
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "httpie": "^1.1.2"
   }
 }
