@@ -1,10 +1,9 @@
 {
   "name": "back-end-api",
   "version": "1.0.0",
-  "main": "api/tasks.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prestart": "npm install",
     "start": "node server.js"
   },
   "repository": {
@@ -18,10 +17,11 @@
     "url": "https://github.com/P-code2025/back-end-api/issues"
   },
   "homepage": "https://github.com/P-code2025/back-end-api#readme",
-  "description": "",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^5.1.0",
-    "httpie": "^1.1.2"
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
