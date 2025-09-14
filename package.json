@@ -4,6 +4,7 @@
   "main": "api/tasks.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "npm install",
     "start": "node api/tasks.js"
   },
   "repository": {
