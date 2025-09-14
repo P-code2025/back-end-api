@@ -16,5 +16,8 @@
     "url": "https://github.com/P-code2025/back-end-api/issues"
   },
   "homepage": "https://github.com/P-code2025/back-end-api#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
 }
