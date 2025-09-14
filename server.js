@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
+const tasksRouter = require("./api/tasks.router");
 
 const app = express();
 app.use(cors());
@@ -14,17 +15,14 @@ function readDB() {
   return JSON.parse(raw);
 }
 
-// Trả data khi vào root "/"
+// Route root trả toàn bộ db.json
 app.get("/", (req, res) => {
   const json = readDB();
-  res.json(json); // Trả toàn bộ nội dung db.json
+  res.json(json);
 });
 
-// Nếu muốn chỉ trả tasks thì:
-app.get("/api/tasks", (req, res) => {
-  const json = readDB();
-  res.json(json.tasks || []);
-});
+// Mount router CRUD tasks
+app.use("/api/tasks", tasksRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
