@@ -1,22 +1,21 @@
-const cors = require("cors"); // Import the cors middleware
-const { send } = require("httpie");
+const cors = require("cors");
+const httpie = require("httpie");
 
-// VÌ BẠN KHÔNG THỂ DÙNG FILE HỆ THỐNG TRÊN RENDER,
-// CHÚNG TA SẼ DÙNG MỘT MẢNG TRONG BỘ NHỚ LÀM NƠI LƯU TRỮ TẠM THỜI.
-// LƯU Ý: DỮ LIỆU SẼ BỊ XÓA SAU MỖI LẦN TRIỂN KHAI HOẶC KHỞI ĐỘNG LẠI.
+// A temporary in-memory database.
+// NOTE: Data will be lost on every deploy or server restart.
 let tasks = [];
 
-// Middleware CORS
+// CORS middleware handler
 const corsHandler = cors();
 
 module.exports = async (req, res) => {
-  // Apply CORS middleware
+  // Apply CORS middleware before processing
   corsHandler(req, res, async () => {
     const { url, method } = req;
     const parts = url.split("/").filter(Boolean);
     const apiPath = "/api/tasks";
 
-    // Helper to handle response
+    // Helper to handle responses
     const sendResponse = (statusCode, data) => {
       res.status(statusCode).json(data);
     };
